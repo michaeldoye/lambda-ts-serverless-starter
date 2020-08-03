@@ -3,8 +3,8 @@ import { expect } from 'chai';
 import { getSomeStuffFromAPI } from '../app/handler';
 import lambdaTester from 'lambda-tester';
 
-describe('Auth Code Rabo', () => {
-  it('getAuthCode', async () => {
+describe('My Cool Lambda Function', () => {
+  it('Should get some stuff from an API', async () => {
     return await lambdaTester(getSomeStuffFromAPI)
       .event({ something: 'blah' })
       .expectResult((result: any) => {
