@@ -1,6 +1,6 @@
 <!--
-title: 'Serverless Nodejs Rest API with TypeScript And MongoDB Atlas'
-description: 'This is simple REST API example for AWS Lambda By Serverless framwork with TypeScript and MongoDB Atlas.'
+title: 'Serverless Nodejs Rest API with TypeScript'
+description: 'This is simple REST API example for AWS Lambda By Serverless framework with TypeScript'
 layout: Doc
 framework: v1
 platform: AWS
@@ -10,16 +10,9 @@ authorName: 'May Jun'
 authorAvatar: 'https://avatars0.githubusercontent.com/u/17956058?s=460&u=f3acebabd097e6e93d5be5a8366b980fea5b15aa&v=4'
 -->
 
-# PSD2 Rest API
+# TypeScript Lambda Starter
 
-API to facilitate connections to PSD2 banking API.
-
-## Use Cases
-
-- Connect to ABN Amro
-- Connect to Rabobank
-- Connect to ING
-- For all banks you can fetch account information, account balances, and account transactions
+Starter Template using serverless with TypeScript.
 
 ## Invoke the function locally
 
