@@ -1,0 +1,76 @@
+{
+  "name": "Psd2Connector",
+  "version": "1.0.0",
+  "description": "Psd2Connector",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tslint -p tsconfig.json -c tslint.json --fix",
+    "local": "serverless offline",
+    "deploy": "serverless deploy --stage dev --region eu-west-1",
+    "test": "cross-env NODE_ENV=dev mocha -r ts-node/register tests/**/*.test.ts --exclude tests/psd2-connector.test.ts --exit",
+    "coverage": "nyc --reporter lcov npm run test",
+    "test:app": "ts-node node_modules/jasmine/bin/jasmine",
+    "docs": "typedoc --out docs app"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "dependencies": {
+    "aws-sdk": "^2.705.0",
+    "cross-fetch": "^3.0.5",
+    "dotenv": "^8.2.0",
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.3.0",
+    "uuid": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.51",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/chai": "^4.2.11",
+    "@types/dotenv-safe": "^8.1.0",
+    "@types/lambda-tester": "^3.6.0",
+    "@types/mocha": "^7.0.2",
+    "@types/sinon": "^9.0.0",
+    "@types/supertest": "^2.0.8",
+    "chai": "^4.2.0",
+    "cross-env": "^7.0.2",
+    "husky": "^4.2.5",
+    "istanbul": "^0.4.5",
+    "lambda-tester": "^4.0.1",
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
+    "serverless-offline": "^5.12.1",
+    "serverless-plugin-typescript": "^1.1.9",
+    "serverless-sam": "^0.2.0",
+    "sinon": "^9.0.2",
+    "ts-node": "^8.9.1",
+    "tslint": "^6.1.2",
+    "tslint-config-airbnb": "^5.11.2",
+    "typedoc": "^0.16.11",
+    "typescript": "^3.9.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Q-Angelo/aws-node-typescript-rest-api.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && npm run test"
+    }
+  },
+  "keywords": [
+    "Nodejs",
+    "TypeScript",
+    "ServerLess",
+    "MongoDB Atlas",
+    "AWS Lambda"
+  ],
+  "author": "May",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Q-Angelo/aws-node-typescript-rest-api/issues"
+  },
+  "homepage": "https://github.com/Q-Angelo/aws-node-typescript-rest-api#readme"
+}

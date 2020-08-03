@@ -1,0 +1,46 @@
+service: Psd2Connector
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    NODE_ENV: dev
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-sam
+
+package:
+  exclude:
+    - config/.env.stg
+    - config/.env.pro
+  include:
+    - config/.env.dev
+    - certs/**
+
+functions:
+  psd2GetAuthUrl:
+    handler: app/handler.psd2GetAuthUrl
+    role: lambdaWithDynamoDbAccess
+    events:
+
+resources:
+  Resources:
+    lambdaWithDynamoDbAccess:
+      Type: AWS::IAM::Role
+      Properties:
+        Path: /my/default/path/
+        RoleName: LambdaWithDynamoDbAccess
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+              Action: sts:AssumeRole
+        ManagedPolicyArns:
+          - arn:aws:iam::aws:policy/CloudWatchFullAccess
+          - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+          - arn:aws:iam::aws:policy/SecretsManagerReadWrite
