@@ -1,11 +1,6 @@
 import { StatusCode } from './enums';
 import { ErrorModel } from '../model/shared/error.model';
 
-export const parseEvent = (event: any) => {
-  // TODO: impl
-  return event;
-};
-
 export const parseResponse = (response: string) => {
   if (response) {
     return JSON.parse(response);

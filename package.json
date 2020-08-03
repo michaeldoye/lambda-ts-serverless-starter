@@ -1,13 +1,13 @@
 {
-  "name": "Psd2Connector",
+  "name": "lambda-ts-serverless-starter",
   "version": "1.0.0",
-  "description": "Psd2Connector",
+  "description": "lambda-ts-serverless-starter",
   "main": "index.js",
   "scripts": {
     "lint": "tslint -p tsconfig.json -c tslint.json --fix",
     "local": "serverless offline",
     "deploy": "serverless deploy --stage dev --region eu-west-1",
-    "test": "cross-env NODE_ENV=dev mocha -r ts-node/register tests/**/*.test.ts --exclude tests/psd2-connector.test.ts --exit",
+    "test": "cross-env NODE_ENV=dev mocha -r ts-node/register tests/**/*.test.ts --exclude tests/get-some-stuff-from-api.test.ts --exit",
     "coverage": "nyc --reporter lcov npm run test",
     "test:app": "ts-node node_modules/jasmine/bin/jasmine",
     "docs": "typedoc --out docs app"
@@ -53,7 +53,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Q-Angelo/aws-node-typescript-rest-api.git"
+    "url": "git+https://github.com/michaeldoye/lambda-ts-serverless-starter.git"
   },
   "husky": {
     "hooks": {
@@ -70,7 +70,7 @@
   "author": "May",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Q-Angelo/aws-node-typescript-rest-api/issues"
+    "url": "https://github.com/michaeldoye/lambda-ts-serverless-starter/issues"
   },
-  "homepage": "https://github.com/Q-Angelo/aws-node-typescript-rest-api#readme"
+  "homepage": "https://github.com/michaeldoye/lambda-ts-serverless-starter"
 }

@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { Handler } from 'aws-lambda';
 import { MyCoolController } from './controller/my-cool.controller';
-import { AwsEventModel } from './model/shared/aws-event.model';
+import { MyCoolAWSEvent } from './model/shared/aws-event.model';
 import { MessageUtil } from './utils/message';
 import { container } from 'tsyringe';
 import { unknownError } from './utils/helpers';
@@ -20,7 +20,7 @@ const myCoolController = container.resolve<MyCoolController>(MyCoolController);
  * @param event  AWS event object. MUST contain a string representing the Bank ID
  *
  */
-export const psd2GetAuthUrl: Handler = (event: AwsEventModel) => {
+export const GetSomeStuffFromAPI: Handler = (event: MyCoolAWSEvent) => {
   if (event) {
     return myCoolController.handleSomeCoolControlFlow(event);
   }

@@ -14,4 +14,8 @@ interface AWSEventQueryParamsModel {
   [x: string]: any;
 }
 
-export { AwsEventModel };
+interface MyCoolAWSEvent {
+  something: string;
+}
+
+export { AwsEventModel, MyCoolAWSEvent };
