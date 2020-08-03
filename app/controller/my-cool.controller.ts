@@ -11,7 +11,6 @@ export class MyCoolController {
 
   async handleSomeCoolControlFlow(event: MyCoolAWSEvent) {
     try {
-
       if (!event || (event && !event.something)) {
         return MessageUtil.error(
           createError('100', { message: 'No something provided' }, StatusCode.badRequest),

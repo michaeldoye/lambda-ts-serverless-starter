@@ -3,7 +3,6 @@ import { RequestOptions } from '../../model/shared/https.model';
 import { parseResponse } from '../../utils/helpers';
 
 export class HttpsService {
-
   executeRequest<T>(postData: string | null, requestOptions: RequestOptions): Promise<T> {
     return new Promise((resolve, reject) => {
       const req = https.request(requestOptions, (res) => {
@@ -17,7 +16,7 @@ export class HttpsService {
 
         res.on('end', () => {
           if (res.statusCode !== 200) {
-            reject(`request to the bank failed with status code: ${res.statusCode}`);
+            reject(`request failed with status code: ${res.statusCode}`);
           }
 
           const response = parseResponse(body.toString());
@@ -26,7 +25,9 @@ export class HttpsService {
       });
 
       req.on('error', (e) => {
-        reject(`Something went wrong connecting to the bank: ${JSON.stringify(e)}`);
+        reject(
+          `Something went wrong connecting to ${requestOptions.hostname}: ${JSON.stringify(e)}`,
+        );
       });
 
       if (postData !== null) {
