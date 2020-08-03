@@ -1,4 +1,4 @@
-service: Psd2Connector
+service: TSLambdaStarter
 
 provider:
   name: aws
@@ -20,27 +20,6 @@ package:
     - certs/**
 
 functions:
-  psd2GetAuthUrl:
+  getSomeStuffFromAPI:
     handler: app/handler.psd2GetAuthUrl
-    role: lambdaWithDynamoDbAccess
     events:
-
-resources:
-  Resources:
-    lambdaWithDynamoDbAccess:
-      Type: AWS::IAM::Role
-      Properties:
-        Path: /my/default/path/
-        RoleName: LambdaWithDynamoDbAccess
-        AssumeRolePolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-            - Effect: Allow
-              Principal:
-                Service:
-                  - lambda.amazonaws.com
-              Action: sts:AssumeRole
-        ManagedPolicyArns:
-          - arn:aws:iam::aws:policy/CloudWatchFullAccess
-          - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
-          - arn:aws:iam::aws:policy/SecretsManagerReadWrite
